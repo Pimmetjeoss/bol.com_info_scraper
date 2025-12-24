@@ -8,7 +8,17 @@
       "Bash(powershell -ExecutionPolicy Bypass -File:*)",
       "Bash(cat:*)",
       "Bash(python:*)",
-      "Bash(git rev-parse:*)"
+      "Bash(git rev-parse:*)",
+      "Bash(powershell -Command \"Test-Path ''C:\\\\Users\\\\lieshoup\\\\agents\\\\Bol-scraper\\\\specs\\\\001-bol-help-scraper\\\\checklists''\")",
+      "Bash(dir /s /b \"C:\\\\Users\\\\lieshoup\\\\agents\\\\Bol-scraper\\\\output\\\\*.md\")",
+      "Bash(dir /b \"C:\\\\Users\\\\lieshoup\\\\agents\\\\Bol-scraper\\\\output\")",
+      "Bash(dir /s /b \"C:\\\\Users\\\\lieshoup\\\\agents\\\\Bol-scraper\\\\output\\\\hulp-nodig\")",
+      "Bash(git -C:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(pip install:*)",
+      "Bash(playwright install:*)",
+      "Bash(git add:*)"
     ]
   }
 }
