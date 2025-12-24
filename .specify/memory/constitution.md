@@ -1,50 +1,96 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: N/A → 1.0.0 (initial)
+Modified principles: N/A (initial creation)
+Added sections:
+  - Core Principles (4 principles)
+  - Project Scope
+  - Development Workflow
+  - Governance
+Removed sections: N/A
+Templates status:
+  - .specify/templates/plan-template.md: ✅ Compatible (no updates required)
+  - .specify/templates/spec-template.md: ✅ Compatible (no updates required)
+  - .specify/templates/tasks-template.md: ✅ Compatible (testing is optional per template)
+Follow-up TODOs: None
+-->
+
+# Bol-scraper Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Simplicity First
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Working code takes priority over perfect code. Every implementation MUST use the
+simplest approach that achieves the goal.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- Favor direct, readable code over abstractions
+- No premature optimization
+- No over-engineering for hypothetical future needs
+- If it works and is readable, it ships
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: This is a one-time scraper. Maintainability debt is irrelevant.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. No Testing Required
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+This project explicitly opts out of automated testing. Manual verification is
+sufficient.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- No unit tests
+- No integration tests
+- No test infrastructure
+- Validation happens by running the scraper and inspecting output
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: One-time execution means test investment has zero ROI.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Maximum Performance
+
+Speed is the primary optimization target. The scraper MUST be as fast as possible
+with aggressive concurrency.
+
+- No rate limiting unless absolutely required to avoid bans
+- Maximum concurrent requests within system/target limits
+- Async/parallel processing everywhere applicable
+- Memory usage is secondary to speed
+
+**Rationale**: Faster execution = faster results. Time is the constraint.
+
+### IV. Pragmatic Execution
+
+Get it done. Ship working output over polished process.
+
+- Skip ceremony: no extensive documentation, no elaborate Git workflows
+- Direct problem-solving over process adherence
+- Fix issues by whatever means necessary
+- "Good enough" is the quality bar
+
+**Rationale**: Results matter. Process exists only to serve results.
+
+## Project Scope
+
+This is a one-time web scraper for Bol.com data extraction.
+
+- **Purpose**: Extract product/listing data from Bol.com
+- **Lifecycle**: Single execution, not a maintained product
+- **Output**: Structured data (likely JSON/CSV)
+- **Success criteria**: Complete data extraction that runs to completion
+
+## Development Workflow
+
+Given the pragmatic nature of this project:
+
+- **Commits**: As needed, no enforced message format
+- **Branches**: Optional; direct main commits acceptable
+- **Code review**: Not required
+- **Documentation**: Inline comments only where code is non-obvious
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution defines the development approach for the Bol-scraper project.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+- Principles apply to all code in this repository
+- Deviations allowed when explicitly justified by practical necessity
+- No formal amendment process—update directly as needs change
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-24 | **Last Amended**: 2025-12-24
